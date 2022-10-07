@@ -1,6 +1,6 @@
-# Alliance2023 Algorithm Team 代码规范
+<center><font size="6"><b>Alliance2023 Algorithm Team 代码规范</b></font></center>
 
-###### Developed by NJUST.Alliance.谭恒宇 2022-10-8
+<p align="right">Developed by NJUST.Alliance.谭恒宇 2022-10-8</p>
 
 ## 前言
 
