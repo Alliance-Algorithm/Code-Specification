@@ -1,0 +1,891 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+Alliance2023 Algorithm Team 代码规范
+
+Developed by NJUST.Alliance.谭恒宇 2022-10-8
+
+\hypertarget{ux524dux8a00}{%
+\subsection{前言}\label{ux524dux8a00}}
+
+遵守此规范有助于，提高、增强代码和。
+
+\hypertarget{ux89c4ux8303ux4e0eux7ea6ux675f}{%
+\subsection{规范与约束}\label{ux89c4ux8303ux4e0eux7ea6ux675f}}
+
+\hypertarget{ux4ee3ux7801}{%
+\subsubsection{代码}\label{ux4ee3ux7801}}
+
+\hypertarget{ux5927ux62ecux53f7}{%
+\paragraph{大括号}\label{ux5927ux62ecux53f7}}
+
+大括号表示一个相对封闭的代码块，常在\texttt{if}、\texttt{for}、\texttt{switch}等语句后使用。若有必要，可以在任意位置使用大括号，如用来突出和划分一段用来调试的代码，可以方便阅读者的理解。
+
+在大括号内代码较少时建议将前大括号放置于上一行，增强代码的紧凑性。在内容较多时可以单独成行。除非特别简单且目的明确、无需修改的单句语句外，必须使用大括号。
+
+\textbf{示例：}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{int}\NormalTok{ tmp}\OperatorTok{;}
+\ControlFlowTok{while} \OperatorTok{(}\BuiltInTok{std::}\NormalTok{cin}\OperatorTok{ \textgreater{}\textgreater{}}\NormalTok{ tmp}\OperatorTok{)}
+\NormalTok{	a}\OperatorTok{.}\NormalTok{push\_back}\OperatorTok{(}\NormalTok{tmp}\OperatorTok{);}
+\OperatorTok{\{} \CommentTok{//调试校验和}
+	\DataTypeTok{int}\NormalTok{ sum }\OperatorTok{=} \DecValTok{0}\OperatorTok{;}
+	\ControlFlowTok{for} \OperatorTok{(}\KeywordTok{auto} \OperatorTok{\&}\NormalTok{i }\OperatorTok{:}\NormalTok{ a}\OperatorTok{)} \OperatorTok{\{}
+\NormalTok{		printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\%d}\StringTok{"}\OperatorTok{,}\NormalTok{ i}\OperatorTok{);}
+\NormalTok{		sum }\OperatorTok{+=}\NormalTok{ i}\OperatorTok{;}
+	\OperatorTok{\}}
+\NormalTok{	printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{sum:}\SpecialCharTok{\%d}\StringTok{"}\OperatorTok{,}\NormalTok{ sum}\OperatorTok{);}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux7f29ux8fdb}{%
+\paragraph{缩进}\label{ux7f29ux8fdb}}
+
+缩进格式：Tab制表符缩进，\textbf{禁止}采用空格缩进
+
+需要缩进的代码块：
+
+\begin{quote}
+\texttt{if}、\texttt{else}、\texttt{else\ if}、\texttt{for}、\texttt{while}、\texttt{do\{\}while();}、\texttt{namespace}、\texttt{class}、\texttt{struct}、函数、分行的\texttt{?:}三目运算符
+等
+\end{quote}
+
+不能缩进的标识：
+
+\begin{quote}
+\texttt{Public:}、\texttt{protected:}、\texttt{private:}、\texttt{case\ \#:}
+\end{quote}
+
+为什么缩进/不缩进：
+
+缩进通常表示一个新的代码块（特指临时变量新的生存域），而访问标识符和case标签不划分变量的生存域，为避免积极的误导，这些地方不采用缩进。
+
+\textbf{示例：}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{ C\_class }\OperatorTok{\{}
+\KeywordTok{private}\OperatorTok{:}
+	\CommentTok{//something}
+\KeywordTok{protected}\OperatorTok{:}
+	\CommentTok{//something}
+\KeywordTok{public}\OperatorTok{:}
+	\CommentTok{//something}
+\OperatorTok{\};}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if} \OperatorTok{(}\NormalTok{expresstion1}\OperatorTok{)} \OperatorTok{\{}
+	\ControlFlowTok{switch} \OperatorTok{(}\NormalTok{a}\OperatorTok{[}\DecValTok{0}\OperatorTok{])}
+	\OperatorTok{\{}
+	\ControlFlowTok{case} \DecValTok{0}\OperatorTok{:} \OperatorTok{\{}
+		\CommentTok{//something}
+		\ControlFlowTok{break}\OperatorTok{;}
+	\OperatorTok{\}}
+	\ControlFlowTok{default}\OperatorTok{:}
+		\ControlFlowTok{break}\OperatorTok{;}
+	\OperatorTok{\}}
+
+	\ControlFlowTok{do} \OperatorTok{\{}
+		\CommentTok{//something}
+	\OperatorTok{\}} \ControlFlowTok{while} \OperatorTok{(}\KeywordTok{true}\OperatorTok{);}
+	\CommentTok{//something}
+\OperatorTok{\}} \ControlFlowTok{else} \ControlFlowTok{if} \OperatorTok{(}\NormalTok{expreestion2}\OperatorTok{)} \OperatorTok{\{}
+	\ControlFlowTok{for} \OperatorTok{(}\DataTypeTok{int}\NormalTok{ i }\OperatorTok{=} \DecValTok{0}\OperatorTok{;}\NormalTok{ i }\OperatorTok{\textless{}} \DecValTok{0}\OperatorTok{;} \OperatorTok{++}\NormalTok{i}\OperatorTok{)} \OperatorTok{\{}
+		\CommentTok{//something}
+	\OperatorTok{\}}
+\OperatorTok{\}} \ControlFlowTok{else} \OperatorTok{\{}
+	\ControlFlowTok{while} \OperatorTok{(}\KeywordTok{true}\OperatorTok{)} \OperatorTok{\{}
+		\CommentTok{//something}
+	\OperatorTok{\}}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux7a7aux884c}{%
+\paragraph{空行}\label{ux7a7aux884c}}
+
+合理利用空行分割 实现一定子功能的
+代码区域，有助于提升可读性。适当在空行插入注释来到更好的分割效果
+
+\textbf{示例：}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ C\_ore}\OperatorTok{::}\NormalTok{goeSelect}\OperatorTok{()} \OperatorTok{\{}
+\NormalTok{	vector}\OperatorTok{\textless{}}\NormalTok{ vector}\OperatorTok{\textless{}}\NormalTok{Point}\OperatorTok{\textgreater{}} \OperatorTok{\textgreater{}}\NormalTok{	contours}\OperatorTok{;}
+\NormalTok{	vector}\OperatorTok{\textless{}}\NormalTok{Point}\OperatorTok{\textgreater{}}\NormalTok{			Poly}\OperatorTok{;}
+\NormalTok{	vector}\OperatorTok{\textless{}}\NormalTok{Rect}\OperatorTok{\textgreater{}}\NormalTok{			res}\OperatorTok{;}
+\NormalTok{	vector}\OperatorTok{\textless{}}\DataTypeTok{int}\OperatorTok{\textgreater{}}				\DataTypeTok{res\_type}\OperatorTok{;}
+
+\NormalTok{	findContours}\OperatorTok{(}\NormalTok{img\_pre}\OperatorTok{,}\NormalTok{ contours}\OperatorTok{,}\NormalTok{ RETR\_LIST}\OperatorTok{,}\NormalTok{ CHAIN\_APPROX\_SIMPLE}\OperatorTok{);}
+	\ControlFlowTok{for} \OperatorTok{(}\DataTypeTok{int}\NormalTok{ i }\OperatorTok{=} \DecValTok{0}\OperatorTok{;}\NormalTok{ i }\OperatorTok{\textless{}}\NormalTok{ contours}\OperatorTok{.}\NormalTok{size}\OperatorTok{();}\NormalTok{ i}\OperatorTok{++)}
+    	\OperatorTok{\{} \OperatorTok{...} \OperatorTok{\}}
+	\ControlFlowTok{if} \OperatorTok{(}\NormalTok{res}\OperatorTok{.}\NormalTok{empty}\OperatorTok{())} \ControlFlowTok{return}\OperatorTok{;}
+	\ControlFlowTok{if} \OperatorTok{(}\NormalTok{res}\OperatorTok{.}\NormalTok{size}\OperatorTok{()} \OperatorTok{\textgreater{}} \DecValTok{4}\OperatorTok{)}
+    	\OperatorTok{\{} \OperatorTok{...} \OperatorTok{\}}
+	\CommentTok{//corcer}
+	\ControlFlowTok{for} \OperatorTok{(}\DataTypeTok{int}\NormalTok{ i }\OperatorTok{=} \DecValTok{0}\OperatorTok{;}\NormalTok{ i }\OperatorTok{\textless{}}\NormalTok{ res}\OperatorTok{.}\NormalTok{size}\OperatorTok{();}\NormalTok{ i}\OperatorTok{++)}
+    	\OperatorTok{\{} \OperatorTok{...} \OperatorTok{\}}
+	\CommentTok{//center}
+	\OperatorTok{...}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux7a7aux683c}{%
+\paragraph{空格}\label{ux7a7aux683c}}
+
+单行代码规范参考 \textbf{Visual Studio}
+默认空格规范，除此以外，您还需在以下情况插入空格
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  二维、高维向量（确保代码可移植性，加入空格是所有编译器都能接受的格式，否则不少编译器会识别为\texttt{\textgreater{}\textgreater{}}右移运算符）
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{vector}\OperatorTok{\textless{}}\NormalTok{ vector}\OperatorTok{\textless{}}\NormalTok{Point}\OperatorTok{\textgreater{}} \OperatorTok{\textgreater{}}\NormalTok{ contours}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  多个\texttt{case}的合用：
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{case} \DecValTok{4}\OperatorTok{:} \ControlFlowTok{case} \DecValTok{6}\OperatorTok{:} \OperatorTok{\{} \CommentTok{// Rect or \textquotesingle{}L\textquotesingle{}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \texttt{\#include} 后：
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\PreprocessorTok{\#include }\ImportTok{\textless{}iostream\textgreater{}}
+\PreprocessorTok{\#include }\ImportTok{\textless{}opencv.hpp\textgreater{}}
+\PreprocessorTok{\#include }\ImportTok{"ore.h"}
+\PreprocessorTok{\#define CAMERA }\DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  以及任何您觉得加入空格能降低歧义度和提升可读性的地方。
+\end{enumerate}
+
+\hypertarget{ux53d8ux91cf}{%
+\paragraph{变量}\label{ux53d8ux91cf}}
+
+考虑变量使用的范围来确定变量的生存域，切不可滥用全局变量。滥用全局变量会使得代码可移植性和可读性、可修改性低。程序员口中常说的``屎山''代码几乎都存在滥用全局变量的问题。无较有代表性的示例，请读者自行斟酌。
+
+\hypertarget{ux6ce8ux91ca-1}{%
+\paragraph{注释}\label{ux6ce8ux91ca-1}}
+
+要求头文件里的注释比例大于
+40\%，即将近一半的地方为注释，作为类封装的头文件抬头必须有类功能、定位、接口的介绍以及开发者、开发时间等信息。
+
+源文件里的比例大于
+20\%，每个函数声明、复杂代码块、复杂表达式、调用不常用外部接口的地方必须存在解释目的的注释。
+
+注释可以为中文也可以为英文，当注释中存在中文时请注意使用通用的中文文件编码格式，常用的中文编码格式有\texttt{UTF-8}、\texttt{GB2312}、\texttt{Unicode}等。不同软件、设备之间传递代码时注意格式的转换。
+
+\textbf{示例：}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\PreprocessorTok{\#pragma once}
+\PreprocessorTok{\#ifndef ORE}
+\PreprocessorTok{\#define ORE}
+
+\CommentTok{/*}
+\CommentTok{创建日期:	2021/12/15}
+\CommentTok{最后更新:	2021/12/15}
+\CommentTok{开发者:	21 视觉 谭恒宇}
+\CommentTok{类功能:	识别矿石面编号及朝向}
+\CommentTok{版权归属:	南京理工大学Alliance战队}
+\CommentTok{*/}
+\PreprocessorTok{\#include }\ImportTok{\textless{}vector\textgreater{}}
+\PreprocessorTok{\#include }\ImportTok{\textless{}opencv.hpp\textgreater{}}
+\PreprocessorTok{\#include }\ImportTok{"Template\_Shape.h"}
+\PreprocessorTok{\#define FRAME\_THRESHOLD }\DecValTok{10}
+\PreprocessorTok{\#define DEBUG }\DecValTok{1}
+\PreprocessorTok{\#define MATCH\_FROM\_TEMPLATE }\DecValTok{1}
+
+\KeywordTok{using} \KeywordTok{namespace}\NormalTok{ std}\OperatorTok{;}
+\KeywordTok{using} \KeywordTok{namespace}\NormalTok{ cv}\OperatorTok{;}
+
+\KeywordTok{class}\NormalTok{ C\_ore }\OperatorTok{\{}
+\KeywordTok{private}\OperatorTok{:}
+	\CommentTok{//original img, HSV、pretreated img}
+\NormalTok{	Mat img\_org}\OperatorTok{,}\NormalTok{ img\_HSV}\OperatorTok{,}\NormalTok{ img\_pre}\OperatorTok{;}
+	\KeywordTok{struct}\NormalTok{ ore\_info }\OperatorTok{\{}
+		\CommentTok{//top left,top right,bottom left,bottom right}
+		\CommentTok{//{-}1 stands for unkown, 0 for \textquotesingle{}L\textquotesingle{}, 1 for Rect}
+		\DataTypeTok{char}\NormalTok{ tl}\OperatorTok{,} \FunctionTok{tr}\OperatorTok{,}\NormalTok{ bl}\OperatorTok{,}\NormalTok{ br}\OperatorTok{;} 
+		\CommentTok{//{-}1 for unkown, 0 for Nothing, 1 for One{-}dimensional code, 2 for \textquotesingle{}R\textquotesingle{}}
+		\DataTypeTok{char}\NormalTok{ middle}\OperatorTok{;}
+		\DataTypeTok{bool}\NormalTok{ known}\OperatorTok{;}
+		\CommentTok{//ore surface id and orientation}
+		\CommentTok{//id: 0 {-} top 1 {-} \textquotesingle{}R\textquotesingle{} 2 {-} bottom}
+		\CommentTok{//ori: 0\textasciitilde{}3 {-} One{-}dimensional code is up/down/left/right}
+		\CommentTok{//maybe I should use enum here,Well,That\textquotesingle{}s OK}
+		\DataTypeTok{char}\NormalTok{ id}\OperatorTok{,}\NormalTok{ ori}\OperatorTok{;}
+		\DataTypeTok{void}\NormalTok{ reset}\OperatorTok{()} \OperatorTok{\{}
+			\CommentTok{//reset as unkown}
+\NormalTok{			middle }\OperatorTok{=}\NormalTok{ tl }\OperatorTok{=} \FunctionTok{tr} \OperatorTok{=}\NormalTok{ bl }\OperatorTok{=}\NormalTok{ br }\OperatorTok{=} \OperatorTok{{-}}\DecValTok{1}\OperatorTok{;}
+\NormalTok{			known }\OperatorTok{=} \KeywordTok{false}\OperatorTok{;}
+\NormalTok{			id }\OperatorTok{=}\NormalTok{ ori }\OperatorTok{=} \OperatorTok{{-}}\DecValTok{1}\OperatorTok{;}
+		\OperatorTok{\}}
+\NormalTok{		ore\_info}\OperatorTok{()} \OperatorTok{\{}\NormalTok{ reset}\OperatorTok{();} \OperatorTok{\}}
+	\OperatorTok{\}}\NormalTok{ info}\OperatorTok{;}
+\NormalTok{	Point ROI\_offset}\OperatorTok{;}
+	\CommentTok{//The num of frames has been analyzed, frames num threshold}
+	\DataTypeTok{int}\NormalTok{ frame\_num}\OperatorTok{,}\NormalTok{ frame\_thre}\OperatorTok{;}
+
+	\DataTypeTok{void}\NormalTok{ pretreat}\OperatorTok{();}
+\NormalTok{	Rect get\_ROI\_from\_org}\OperatorTok{();}
+	\CommentTok{//if the info is enough to know id and ori}
+	\DataTypeTok{bool}\NormalTok{ ore\_known}\OperatorTok{();}
+	\DataTypeTok{void}\NormalTok{ geoSelect}\OperatorTok{();}
+	\DataTypeTok{void}\NormalTok{ add\_info}\OperatorTok{(}\NormalTok{Point p}\OperatorTok{,} \DataTypeTok{int}\NormalTok{ id}\OperatorTok{);}
+\KeywordTok{public}\OperatorTok{:}
+\NormalTok{	C\_ore}\OperatorTok{()} \OperatorTok{\{}
+\NormalTok{		frame\_num  }\OperatorTok{=} \DecValTok{0}\OperatorTok{;}
+\NormalTok{		frame\_thre }\OperatorTok{=}\NormalTok{ FRAME\_THRESHOLD}\OperatorTok{;}
+	\OperatorTok{\}}
+	\DataTypeTok{void}\NormalTok{ analyze\_img}\OperatorTok{(}\AttributeTok{const}\NormalTok{ Mat}\OperatorTok{\&}\NormalTok{ img\_original}\OperatorTok{);}
+	\DataTypeTok{bool}\NormalTok{ get\_ore\_info}\OperatorTok{(}\DataTypeTok{int}\OperatorTok{\&}\NormalTok{ id}\OperatorTok{,} \DataTypeTok{int}\OperatorTok{\&}\NormalTok{ ori}\OperatorTok{);}
+	\CommentTok{//return inaccurate angle}
+	\DataTypeTok{bool}\NormalTok{ assess\_slope}\OperatorTok{(}\DataTypeTok{float} \OperatorTok{\&}\NormalTok{angle}\OperatorTok{);}
+
+\NormalTok{	Mat}\OperatorTok{\&}\NormalTok{ GetImg}\OperatorTok{()} \OperatorTok{\{} \ControlFlowTok{return}\NormalTok{ img\_org}\OperatorTok{;} \OperatorTok{\}}
+\OperatorTok{\};}
+
+\PreprocessorTok{\#endif }\CommentTok{// !ORE}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux547dux540d}{%
+\paragraph{命名}\label{ux547dux540d}}
+
+变量、函数、类、结构体、联合体、枚举类型等的命名必须体现其意义或功能。尽量做到``见名识意''。尽量使用英文单词或英文单词的缩写而不是拼音来命名，若名称包含多个单词考虑使用大小写（即驼峰法）或下划线
+\texttt{\_} 来间隔区分。
+
+\textbf{示例（遗传算法的种群类）：}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ variation\_default}\OperatorTok{(}\DataTypeTok{individual\_type}\OperatorTok{\&);}
+\DataTypeTok{individual\_type}\NormalTok{ mate\_default}\OperatorTok{(}\AttributeTok{const} \DataTypeTok{individual\_type}\OperatorTok{\&,} \AttributeTok{const} \DataTypeTok{individual\_type}\OperatorTok{\&);}
+
+\KeywordTok{class}\NormalTok{ population }\OperatorTok{\{}
+\KeywordTok{public}\OperatorTok{:}
+	\KeywordTok{typedef} \DataTypeTok{void} \OperatorTok{(*}\DataTypeTok{variation\_func\_type}\OperatorTok{)} \OperatorTok{(}\DataTypeTok{individual\_type}\OperatorTok{\&);}
+	\KeywordTok{typedef} \DataTypeTok{individual\_type}\OperatorTok{(*}\DataTypeTok{mate\_func\_type}\OperatorTok{)} \OperatorTok{(}\AttributeTok{const} \DataTypeTok{individual\_type}\OperatorTok{\&,} \AttributeTok{const} \DataTypeTok{individual\_type}\OperatorTok{\&);}
+	\KeywordTok{typedef} \DataTypeTok{double} \OperatorTok{(*}\DataTypeTok{fitness\_func\_type}\OperatorTok{)} \OperatorTok{(}\DataTypeTok{individual\_type}\OperatorTok{\&);}
+
+\NormalTok{	population}\OperatorTok{()} \OperatorTok{\{}\NormalTok{ set\_rand\_seed}\OperatorTok{();} \OperatorTok{\}}
+\NormalTok{	population}\OperatorTok{(}\NormalTok{vector}\OperatorTok{\textless{}} \DataTypeTok{individual\_type} \OperatorTok{\textgreater{});}
+	\KeywordTok{virtual} \OperatorTok{\textasciitilde{}}\NormalTok{population}\OperatorTok{()} \OperatorTok{\{\}}
+	\AttributeTok{static} \DataTypeTok{void}\NormalTok{ set\_rand\_seed}\OperatorTok{(}\DataTypeTok{unsigned} \DataTypeTok{int}\NormalTok{ seed }\OperatorTok{=}\NormalTok{ time}\OperatorTok{(}\NormalTok{NULL}\OperatorTok{))} \OperatorTok{\{}\NormalTok{ srand}\OperatorTok{(}\NormalTok{seed}\OperatorTok{);} \OperatorTok{\}}
+	\AttributeTok{static} \DataTypeTok{int}\NormalTok{ randnumInRange}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ low}\OperatorTok{,} \DataTypeTok{int}\NormalTok{ high}\OperatorTok{);}
+
+	\DataTypeTok{int}\NormalTok{ size}\OperatorTok{()} \OperatorTok{\{} \ControlFlowTok{return}\NormalTok{ individuals}\OperatorTok{.}\NormalTok{size}\OperatorTok{();} \OperatorTok{\}}
+	\CommentTok{//void resize(int n) \{ individuals.resize(n); \}}
+	\DataTypeTok{void}\NormalTok{ clear}\OperatorTok{()} \OperatorTok{\{}\NormalTok{ individuals}\OperatorTok{.}\NormalTok{clear}\OperatorTok{();} \OperatorTok{\}}
+	\DataTypeTok{void}\NormalTok{ add\_individual}\OperatorTok{(}\DataTypeTok{individual\_type}\NormalTok{ indiv}\OperatorTok{)} \OperatorTok{\{}\NormalTok{ individuals}\OperatorTok{.}\NormalTok{push\_back}\OperatorTok{(}\NormalTok{indiv}\OperatorTok{);} \OperatorTok{\}}
+
+	\DataTypeTok{void}\NormalTok{ variation}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ index}\OperatorTok{,} \DataTypeTok{variation\_func\_type}\NormalTok{ func }\OperatorTok{=}\NormalTok{ variation\_default}\OperatorTok{);}
+	\DataTypeTok{individual\_type}\NormalTok{ mate}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ index\_A}\OperatorTok{,} \DataTypeTok{int}\NormalTok{ index\_B}\OperatorTok{,} \DataTypeTok{mate\_func\_type}\NormalTok{ func }\OperatorTok{=}\NormalTok{ mate\_default}\OperatorTok{);}
+	\DataTypeTok{double}\NormalTok{ fitness}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ index}\OperatorTok{,} \DataTypeTok{fitness\_func\_type}\NormalTok{ func}\OperatorTok{);}
+\KeywordTok{private}\OperatorTok{:}
+\NormalTok{	vector}\OperatorTok{\textless{}} \DataTypeTok{individual\_type} \OperatorTok{\textgreater{}}\NormalTok{ individuals}\OperatorTok{;}
+	\KeywordTok{friend} \DataTypeTok{void}\NormalTok{ swap}\OperatorTok{(}\NormalTok{population}\OperatorTok{\&}\NormalTok{ A}\OperatorTok{,}\NormalTok{ population}\OperatorTok{\&}\NormalTok{ B}\OperatorTok{);}
+	\KeywordTok{friend} \KeywordTok{class}\NormalTok{ C\_genetic}\OperatorTok{;}
+\OperatorTok{\};}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux51fdux6570}{%
+\paragraph{函数}\label{ux51fdux6570}}
+
+在主源文件不可避免的有较多子函数时，建议将所有函数的声明放置在\texttt{main}函数之前，声明放在\texttt{main}函数之后，使用CTRL+鼠标左键的方式跳转至函数的实现，有利于代码逻辑的呈现。
+
+类封装时头文件里不实现任何超过一行的函数，被实现在类声明中的函数被编译器默认置为内联\texttt{inline}函数，滥用\texttt{inline}函数会导致潜在的代码膨胀。头文件对应的源文件里的函数实现应遵循类定义时函数声明的顺序依次实现。
+
+\textbf{示例（主源文件）：}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\PreprocessorTok{\#include }\ImportTok{\textless{}cstdio\textgreater{}}
+\PreprocessorTok{\#include }\ImportTok{"Genetic.h"}
+\PreprocessorTok{\#define N }\DecValTok{1000}
+\PreprocessorTok{\#define M }\DecValTok{30}
+\PreprocessorTok{\#define T }\DecValTok{100000}
+\PreprocessorTok{\#define STEP }\DecValTok{10}
+\KeywordTok{using} \KeywordTok{namespace}\NormalTok{ std}\OperatorTok{;}
+\KeywordTok{typedef} \DataTypeTok{long} \DataTypeTok{long}\NormalTok{ ll}\OperatorTok{;}
+
+\DataTypeTok{double}\NormalTok{ fitness}\OperatorTok{(}\DataTypeTok{individual\_type}\OperatorTok{\&);}
+\DataTypeTok{void}\NormalTok{ show\_individual}\OperatorTok{(}\AttributeTok{const} \DataTypeTok{char}\OperatorTok{*,} \DataTypeTok{individual\_type}\OperatorTok{\&);}
+\NormalTok{C\_genetic gene}\OperatorTok{(}\NormalTok{fitness}\OperatorTok{);}
+\NormalTok{vector}\OperatorTok{\textless{}} \DataTypeTok{individual\_type} \OperatorTok{\textgreater{}}\NormalTok{ individuals}\OperatorTok{;}
+
+\DataTypeTok{int}\NormalTok{ main}\OperatorTok{()} \OperatorTok{\{}
+\NormalTok{	srand}\OperatorTok{(}\NormalTok{time}\OperatorTok{(}\NormalTok{NULL}\OperatorTok{));}
+\NormalTok{	individuals}\OperatorTok{.}\NormalTok{resize}\OperatorTok{(}\NormalTok{N}\OperatorTok{);}
+	\ControlFlowTok{for} \OperatorTok{(}\DataTypeTok{int}\NormalTok{ i }\OperatorTok{=} \DecValTok{0}\OperatorTok{;}\NormalTok{ i }\OperatorTok{\textless{}}\NormalTok{ N}\OperatorTok{;} \OperatorTok{++}\NormalTok{i}\OperatorTok{)}
+		\ControlFlowTok{for} \OperatorTok{(}\DataTypeTok{int}\NormalTok{ j }\OperatorTok{=} \DecValTok{0}\OperatorTok{;}\NormalTok{ j }\OperatorTok{\textless{}}\NormalTok{ M}\OperatorTok{;} \OperatorTok{++}\NormalTok{j}\OperatorTok{)}
+\NormalTok{			individuals}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{push\_back}\OperatorTok{(}\NormalTok{rand}\OperatorTok{());}
+\NormalTok{	gene}\OperatorTok{.}\NormalTok{add\_group}\OperatorTok{(}\NormalTok{individuals}\OperatorTok{);}
+
+	\DataTypeTok{individual\_type}\NormalTok{ winner }\OperatorTok{=}\NormalTok{ gene}\OperatorTok{.}\NormalTok{best\_one}\OperatorTok{();}
+\NormalTok{	show\_individual}\OperatorTok{(}\StringTok{"First generation:"}\OperatorTok{,}\NormalTok{ winner}\OperatorTok{);}
+
+	\ControlFlowTok{for} \OperatorTok{(}\DataTypeTok{int}\NormalTok{ t }\OperatorTok{=}\NormalTok{ T}\OperatorTok{;}\NormalTok{ t }\OperatorTok{\textgreater{}} \DecValTok{0}\OperatorTok{;}\NormalTok{ t }\OperatorTok{{-}=}\NormalTok{ STEP}\OperatorTok{)} \OperatorTok{\{}
+\NormalTok{		gene}\OperatorTok{.}\NormalTok{run}\OperatorTok{(}\NormalTok{STEP}\OperatorTok{);}
+\NormalTok{		printf}\OperatorTok{(}\StringTok{"In }\SpecialCharTok{\%d}\StringTok{ G "}\OperatorTok{,}\NormalTok{ T }\OperatorTok{{-}}\NormalTok{ t }\OperatorTok{+}\NormalTok{ STEP}\OperatorTok{);}
+\NormalTok{		show\_individual}\OperatorTok{(}\StringTok{"Best now:"}\OperatorTok{,}\NormalTok{ gene}\OperatorTok{.}\NormalTok{best\_one}\OperatorTok{());}
+	\OperatorTok{\}}
+
+	\ControlFlowTok{return} \DecValTok{0}\OperatorTok{;}
+\OperatorTok{\}}
+
+\DataTypeTok{double}\NormalTok{ fitness}\OperatorTok{(}\DataTypeTok{individual\_type}\OperatorTok{\&}\NormalTok{ indiv}\OperatorTok{)} \OperatorTok{\{...\}}
+
+\DataTypeTok{void}\NormalTok{ show\_individual}\OperatorTok{(}\AttributeTok{const} \DataTypeTok{char}\OperatorTok{*}\NormalTok{ info}\OperatorTok{,} \DataTypeTok{individual\_type}\OperatorTok{\&}\NormalTok{ indiv}\OperatorTok{)} \OperatorTok{\{...\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux5b8fux5b9aux4e49}{%
+\paragraph{宏定义}\label{ux5b8fux5b9aux4e49}}
+
+灵活使用宏定义可以实现如调试代码到实际代码的快速切换、使用摄像头与否的快速切换等。不建议将可调参数定义为宏，严禁使用带参的宏定义实现应函数实现的功能（宏定义的行为可能与函数不同，与开发者意图的行为不同且难以排查）。
+
+\textbf{示例：}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\PreprocessorTok{\#include }\ImportTok{\textless{}iostream\textgreater{}}
+\PreprocessorTok{\#include }\ImportTok{\textless{}opencv.hpp\textgreater{}}
+\PreprocessorTok{\#include }\ImportTok{"ore.h"}
+\PreprocessorTok{\#define CAMERA }\DecValTok{1}
+\PreprocessorTok{\#define VEDIO }\DecValTok{1}
+
+\KeywordTok{using} \KeywordTok{namespace}\NormalTok{ std}\OperatorTok{;}
+\KeywordTok{using} \KeywordTok{namespace}\NormalTok{ cv}\OperatorTok{;}
+
+\NormalTok{C\_ore ore}\OperatorTok{;}
+\DataTypeTok{int}\NormalTok{ id}\OperatorTok{,}\NormalTok{ ori}\OperatorTok{;}
+
+\DataTypeTok{int}\NormalTok{ main}\OperatorTok{()} \OperatorTok{\{}
+\NormalTok{	Mat img\_org}\OperatorTok{;}
+\PreprocessorTok{\#if CAMERA == 1}
+\PreprocessorTok{\#if VEDIO == 0}
+\NormalTok{	VideoCapture camera}\OperatorTok{(}\DecValTok{0}\OperatorTok{);}
+\PreprocessorTok{\#else}
+\NormalTok{	VideoCapture camera}\OperatorTok{(}\StringTok{"Resourse/4.mp4"}\OperatorTok{);}
+\PreprocessorTok{\#endif}
+\PreprocessorTok{\#else}
+\NormalTok{	img\_org }\OperatorTok{=}\NormalTok{ imread}\OperatorTok{(}\StringTok{"Resourse/jietu.png"}\OperatorTok{);}
+\NormalTok{	resize}\OperatorTok{(}\NormalTok{img\_org}\OperatorTok{,}\NormalTok{ img\_org}\OperatorTok{,}\NormalTok{ Size}\OperatorTok{(),} \FloatTok{0.5}\OperatorTok{,} \FloatTok{0.5}\OperatorTok{);}
+\PreprocessorTok{\#endif}
+	\ControlFlowTok{while} \OperatorTok{(}\KeywordTok{true}\OperatorTok{)} \OperatorTok{\{}
+\PreprocessorTok{\#if CAMERA == 1}
+\PreprocessorTok{\#if VEDIO == 1}
+\NormalTok{		waitKey}\OperatorTok{(}\DecValTok{0}\OperatorTok{);}
+\PreprocessorTok{\#endif}
+		\CommentTok{//static VideoWriter output("Resourse/res.avi", }\ErrorTok{\textbackslash{}}
+\CommentTok{		//	VideoWriter::fourcc(\textquotesingle{}D\textquotesingle{}, \textquotesingle{}I\textquotesingle{}, \textquotesingle{}V\textquotesingle{}, \textquotesingle{}X\textquotesingle{}), 20, Size(1280, 720) / 2);}
+\NormalTok{		camera}\OperatorTok{.}\NormalTok{read}\OperatorTok{(}\NormalTok{img\_org}\OperatorTok{);}
+		\ControlFlowTok{if} \OperatorTok{(}\NormalTok{img\_org}\OperatorTok{.}\NormalTok{empty}\OperatorTok{())} \OperatorTok{\{}
+		\CommentTok{//	output.release();}
+\NormalTok{			waitKey}\OperatorTok{(}\DecValTok{0}\OperatorTok{);}
+		\OperatorTok{\}}
+\NormalTok{		resize}\OperatorTok{(}\NormalTok{img\_org}\OperatorTok{,}\NormalTok{ img\_org}\OperatorTok{,}\NormalTok{ Size}\OperatorTok{(),} \FloatTok{0.5}\OperatorTok{,} \FloatTok{0.5}\OperatorTok{);}
+\PreprocessorTok{\#endif}
+\NormalTok{		ore}\OperatorTok{.}\NormalTok{analyze\_img}\OperatorTok{(}\NormalTok{img\_org}\OperatorTok{);}
+		\CommentTok{//output.write(ore.GetImg());}
+		\ControlFlowTok{if} \OperatorTok{(}\NormalTok{ore}\OperatorTok{.}\NormalTok{get\_ore\_info}\OperatorTok{(}\NormalTok{id}\OperatorTok{,}\NormalTok{ ori}\OperatorTok{))} \OperatorTok{\{...\}}
+\NormalTok{		waitKey}\OperatorTok{(}\DecValTok{1}\OperatorTok{);}
+	\OperatorTok{\}}
+	\ControlFlowTok{return} \DecValTok{0}\OperatorTok{;}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux903bux8f91}{%
+\subsubsection{逻辑}\label{ux903bux8f91}}
+
+\hypertarget{ux6ce8ux91ca-2}{%
+\paragraph{\texorpdfstring{注释 }{注释 }}\label{ux6ce8ux91ca-2}}
+
+代码内注释应使用尽量简洁清晰的语言描述程序的行为目的，其他地方（如函数声名处的注释）应详细充分。
+
+\textbf{示例（函数声明处详细的注释，对实际开发来说示例注释比较过分，仅作演示）：}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{/** }\AnnotationTok{@brief}\CommentTok{ Default constructor}
+\InformationTok{@note}\CommentTok{ In }\AnnotationTok{@ref}\CommentTok{ }\CommentVarTok{videoio\_c}\CommentTok{ "C API", when you finished working with video, release CvCapture structure with}
+\CommentTok{cvReleaseCapture(), or use Ptr}\AnnotationTok{\textbackslash{}\textless{}CvCapture\textbackslash{}\textgreater{}}\CommentTok{ that calls cvReleaseCapture() automatically in the}
+\CommentTok{destructor.}
+\CommentTok{ */}
+\NormalTok{CV\_WRAP VideoCapture}\OperatorTok{();}
+
+\CommentTok{/** }\AnnotationTok{@overload}
+\AnnotationTok{@brief}\CommentTok{  Opens a video file or a capturing device or an IP video stream for video capturing with API Preference}
+
+\AnnotationTok{@param}\CommentTok{ }\CommentVarTok{filename}\CommentTok{ it can be:}
+\CommentTok{{-} name of video file (eg. \textasciigrave{}video.avi\textasciigrave{})}
+\CommentTok{{-} or image sequence (eg. \textasciigrave{}img\_\%02d.jpg\textasciigrave{}, which will read samples like \textasciigrave{}img\_00.jpg, img\_01.jpg, img\_02.jpg, ...\textasciigrave{})}
+\CommentTok{{-} or URL of video stream (eg. \textasciigrave{}protocol://host:port/script\_name?script\_params|auth\textasciigrave{})}
+\CommentTok{{-} or GStreamer pipeline string in gst{-}launch tool format in case if GStreamer is used as backend}
+\CommentTok{  Note that each video stream or IP camera feed has its own URL scheme. Please refer to the}
+\CommentTok{  documentation of source stream to know the right URL.}
+\AnnotationTok{@param}\CommentTok{ }\CommentVarTok{apiPreference}\CommentTok{ preferred Capture API backends to use. Can be used to enforce a specific reader}
+\CommentTok{implementation if multiple are available: e.g. cv::CAP\_FFMPEG or cv::CAP\_IMAGES or cv::CAP\_DSHOW.}
+
+\AnnotationTok{@sa}\CommentTok{ cv::VideoCaptureAPIs}
+\CommentTok{*/}
+\NormalTok{CV\_WRAP }\KeywordTok{explicit}\NormalTok{ VideoCapture}\OperatorTok{(}\AttributeTok{const}\NormalTok{ String}\OperatorTok{\&}\NormalTok{ filename}\OperatorTok{,} \DataTypeTok{int}\NormalTok{ apiPreference }\OperatorTok{=}\NormalTok{ CAP\_ANY}\OperatorTok{);}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux521dux59cbux5316}{%
+\paragraph{初始化}\label{ux521dux59cbux5316}}
+
+永远初始化在非全局声明或非堆空间中的变量，在类的构造函数中初始化所有数据成员，未熟练掌握语言的程序员容易因未初始化所导致的错误花费大量的调试时间。
+
+\hypertarget{ux65adux8a00}{%
+\paragraph{断言}\label{ux65adux8a00}}
+
+熟练并灵活运用断言\texttt{assert}能提升代码鲁棒性（即各种输入环境下的适应能力），减少因数组越界等问题造成的异常。
+
+\hypertarget{ux679aux4e3eux7c7bux578b}{%
+\paragraph{枚举类型}\label{ux679aux4e3eux7c7bux578b}}
+
+在需要区分多个状态、类型时必须采用枚举类型，不采用枚举类型而采用约定编号的方法很容易导致难以察觉的疏忽。
+
+\textbf{错误做法示例：}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{//top left,top right,bottom left,bottom right}
+\CommentTok{//{-}1 stands for unkown, 0 for \textquotesingle{}L\textquotesingle{}, 1 for Rect}
+\DataTypeTok{char}\NormalTok{ tl}\OperatorTok{,} \FunctionTok{tr}\OperatorTok{,}\NormalTok{ bl}\OperatorTok{,}\NormalTok{ br}\OperatorTok{;}
+\CommentTok{//{-}1 for unkown, 0 for Nothing, 1 for One{-}dimensional code, 2 for \textquotesingle{}R\textquotesingle{}}
+\DataTypeTok{char}\NormalTok{ middle}\OperatorTok{;}
+\DataTypeTok{bool}\NormalTok{ known}\OperatorTok{;}
+\CommentTok{//ore surface id and orientation}
+\CommentTok{//id: 0 {-} top 1 {-} \textquotesingle{}R\textquotesingle{} 2 {-} bottom}
+\CommentTok{//ori: 0\textasciitilde{}3 {-} One{-}dimensional code is up/down/left/right}
+\CommentTok{//maybe I should use enum here,Well,That\textquotesingle{}s OK}
+\DataTypeTok{char}\NormalTok{ id}\OperatorTok{,}\NormalTok{ ori}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux5b8f}{%
+\paragraph{宏}\label{ux5b8f}}
+
+\textbf{重申：}
+
+\textbf{常用的宏示例：}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\PreprocessorTok{\#define SOME\_THING }\DecValTok{1}
+
+\PreprocessorTok{\#if SOME\_THING == 1}
+\CommentTok{// code A}
+\PreprocessorTok{\#else }\CommentTok{// SOME\_THING == 0}
+\CommentTok{// code B}
+\PreprocessorTok{\#endif}
+
+\PreprocessorTok{\#ifdef SOME\_THING}
+\CommentTok{// normal}
+\PreprocessorTok{\#else }\CommentTok{// error when undefine SOME\_THING}
+\PreprocessorTok{\#error "NOT define SOME\_THING"}
+\PreprocessorTok{\#endif }\CommentTok{// SOME\_THING}
+
+\PreprocessorTok{\#undef SOME\_THING}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{如下两种宏都对头文件有保护作用：}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\PreprocessorTok{\#pragma once}
+\CommentTok{//it equals to}
+\PreprocessorTok{\#ifndef TEST}
+\PreprocessorTok{\#define TEST}
+\CommentTok{//your code here}
+\PreprocessorTok{\#endif }\ErrorTok{TEST}
+\end{Highlighting}
+\end{Shaded}
+
+建议使用第一种形式对头文件进行保护以免宏重名的风险。
+
+\hypertarget{ux547dux540dux7a7aux95f4-namespace}{%
+\paragraph{命名空间
+namespace}\label{ux547dux540dux7a7aux95f4-namespace}}
+
+\textbf{禁止}在头文件中直接\texttt{using\ namespace}。
+
+若同命名空间的函数调用较少，尽量不直接使用整个命名空间来减少命名冲突的概率，即使不使用整个命名空间，也尽量不要与其中的变量、函数、类等重名。
+
+在源文件中函数使用较多时可以通过直接使用命名空间的方式减少代码的冗余。
+
+\hypertarget{ux5f15ux7528}{%
+\paragraph{引用}\label{ux5f15ux7528}}
+
+合理利用引用的传参以减少数值传递的开销，提升代码效率，不改变原参数的情况下使用\texttt{const}修饰符。
+
+\textbf{示例：}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{individual\_type}\NormalTok{ mate\_default}\OperatorTok{(}\AttributeTok{const} \DataTypeTok{individual\_type}\OperatorTok{\&,} \AttributeTok{const} \DataTypeTok{individual\_type}\OperatorTok{\&);}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux6307ux9488}{%
+\paragraph{指针}\label{ux6307ux9488}}
+
+不熟悉指针时应尽量避免使用指针，使用指针请一定注意指针安全。
+
+即使熟悉指针，在有不麻烦很多的替选项（如引用）时应优先考虑使用其他方式实现。
+
+在使用\texttt{new}、\texttt{new{[}{]}}和\texttt{delete}、\texttt{delete{[}{]}}对指针进行动态内存分配时应考虑是否可以用带封装和引用计数的类来代理内存分配。
+
+\hypertarget{ux6570ux7ec4ux548cux5e93ux5bb9ux5668}{%
+\paragraph{数组和库容器}\label{ux6570ux7ec4ux548cux5e93ux5bb9ux5668}}
+
+在元素个数上限不确定时避免使用基础的数组来存储，优先考虑使用如\texttt{vector}的STL库容器来存储。
+
+常用的标准库容器有\texttt{vector}、\texttt{queue}、\texttt{deque}、\texttt{priority\_queue}、\texttt{stack}、\texttt{list}、\texttt{map}、\texttt{multimap}、\texttt{set}、\texttt{multiset}等
+
+其他的数据结构（如分块、线段树、平衡树等）建议使用前届已测试并封装好的类。
+
+\hypertarget{ux51fdux6570ux58f0ux660eux4e0eux5b9eux73b0}{%
+\paragraph{函数声明与实现}\label{ux51fdux6570ux58f0ux660eux4e0eux5b9eux73b0}}
+
+函数应具有明确的目的性，代表一个相对独立的，完整的功能。函数的功能和目的应在声明处有详细的注释体现。
+
+函数声明可以不包括形参的名字，但必须包含完整的形参类型。
+
+\textbf{示例：}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ variation\_default}\OperatorTok{(}\DataTypeTok{individual\_type}\OperatorTok{\&);}
+\DataTypeTok{individual\_type}\NormalTok{ mate\_default}\OperatorTok{(}\AttributeTok{const} \DataTypeTok{individual\_type}\OperatorTok{\&,} \AttributeTok{const} \DataTypeTok{individual\_type}\OperatorTok{\&);}
+\end{Highlighting}
+\end{Shaded}
+
+函数实现需包括形参名，默认参数只能存在声明或没有声明直接实现的函数中。
+
+若函数被封装在\texttt{.h}和\texttt{.cpp}文件内，则声明在头文件，实现在源文件中。头文件不允许实现任何超过一行语句的函数。可以合理使用函数修饰符优化编译。
+
+\hypertarget{ux51fdux6570ux5f62ux53c2ux548cux8fd4ux56deux503c}{%
+\paragraph{函数形参和返回值}\label{ux51fdux6570ux5f62ux53c2ux548cux8fd4ux56deux503c}}
+
+函数形参的意义、返回值的意义应在函数声明处有详细的说明。
+
+不可滥用按值传递，成员较多、占用字节大的类作为参数传递时若非迫不得已不应使用按值传递，优先考虑引用传递、指针传递或传递其代理类、句柄类。
+
+部分采用引用计数的类按值传递不会产生较大的内存开销，但是函数内任何尝试对其进行修改的操作都会导致\textbf{写时复制}。
+
+\hypertarget{ux5f02ux5e38ux5904ux7406}{%
+\paragraph{异常处理}\label{ux5f02ux5e38ux5904ux7406}}
+
+写程序时应有预见性地加入异常处理机制，在程序运行可能遇到的非致命性错误可通过异常抛出\texttt{throw}和接收处理\texttt{catch}来维持程序的正常运行，以免真正地引发致命性错误。
+
+在赛场上没人希望车跑一半程序挂了，产生致命性错误、请求了严重的程序退出时可以通过有意识的自我重启、保护线程、看门狗程序或硬件看门狗重启弥补。
+
+\hypertarget{ux591aux7ebfux7a0bux548cux7ebfux7a0bux5b89ux5168}{%
+\paragraph{多线程和线程安全}\label{ux591aux7ebfux7a0bux548cux7ebfux7a0bux5b89ux5168}}
+
+线程之间的通信一般通过一个或多个缓冲区和数把线程锁、信号量来实现。若使用多线程编程请一定注意线程安全，任何一个公有的数据都应有一把独立的锁，尽量将数据打包在一个类或结构体中。
+
+\hypertarget{ux7c7bux5c01ux88c5}{%
+\subsubsection{类封装}\label{ux7c7bux5c01ux88c5}}
+
+\hypertarget{ux610fux4e49}{%
+\paragraph{意义}\label{ux610fux4e49}}
+
+为什么要封装一个类？类是通用的，在有很多可移植的类时编程通常是简单而顺利的。类封装对代码的可读性、可维护性、可移植性都有巨大的贡献。
+
+\hypertarget{ux5b9aux4f4d}{%
+\paragraph{定位}\label{ux5b9aux4f4d}}
+
+创建一个类时，类的定位非常重要，类定位应该是尽量脱离某个特定的程序，独立能完成一套算法动作的个体。定位切不可与某个特定的过程、函数、工程有不可分的联系，否则封装类就失去了意义。
+
+\hypertarget{ux63a5ux53e3ux548cux5c01ux88c5}{%
+\paragraph{接口和封装}\label{ux63a5ux53e3ux548cux5c01ux88c5}}
+
+类应该提供统一、必要的接口，类封装的意义在于将内部实现的方式隐藏，提供的接口完整而方便。
+
+\textbf{示例（循环队列类\&实现）：}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{template} \OperatorTok{\textless{}}\KeywordTok{typename}\NormalTok{ T}\OperatorTok{,} \DataTypeTok{int}\NormalTok{ NUM}\OperatorTok{\textgreater{}} \KeywordTok{struct}\NormalTok{ DEQUE }\OperatorTok{\{}
+\KeywordTok{private}\OperatorTok{:}
+\NormalTok{    T q}\OperatorTok{[}\NormalTok{NUM}\OperatorTok{];} \DataTypeTok{int}\NormalTok{ head}\OperatorTok{,}\NormalTok{ last}\OperatorTok{;}
+\KeywordTok{public}\OperatorTok{:}
+\NormalTok{    DEQUE}\OperatorTok{():}\NormalTok{head}\OperatorTok{(}\DecValTok{0}\OperatorTok{),}\NormalTok{ last}\OperatorTok{(}\DecValTok{0}\OperatorTok{)} \OperatorTok{\{\}}
+    \DataTypeTok{void}\NormalTok{ push}\OperatorTok{(}\NormalTok{T v}\OperatorTok{)} \OperatorTok{\{}
+        \ControlFlowTok{if}\OperatorTok{(}\NormalTok{last }\OperatorTok{==}\NormalTok{ NUM}\OperatorTok{)}\NormalTok{ last }\OperatorTok{=} \DecValTok{0}\OperatorTok{;}
+\NormalTok{        q}\OperatorTok{[}\NormalTok{last}\OperatorTok{++]} \OperatorTok{=}\NormalTok{ v}\OperatorTok{;}
+    \OperatorTok{\}}
+    \DataTypeTok{bool}\NormalTok{ empty}\OperatorTok{()} \OperatorTok{\{} \ControlFlowTok{return}\NormalTok{ head }\OperatorTok{==}\NormalTok{ last}\OperatorTok{;} \OperatorTok{\}}
+    \DataTypeTok{void}\NormalTok{ pop}\OperatorTok{()} \OperatorTok{\{} \ControlFlowTok{if}\OperatorTok{(++}\NormalTok{head }\OperatorTok{==}\NormalTok{ NUM}\OperatorTok{)}\NormalTok{ head }\OperatorTok{=} \DecValTok{0}\OperatorTok{;} \OperatorTok{\}}
+\NormalTok{    T}\OperatorTok{\&}\NormalTok{ front}\OperatorTok{()} \OperatorTok{\{} \ControlFlowTok{return}\NormalTok{ q}\OperatorTok{[}\NormalTok{head}\OperatorTok{];} \OperatorTok{\}}
+\NormalTok{    T}\OperatorTok{\&}\NormalTok{ back}\OperatorTok{()} \OperatorTok{\{} \ControlFlowTok{return}\NormalTok{ q}\OperatorTok{[}\NormalTok{last }\OperatorTok{{-}} \DecValTok{1}\OperatorTok{];} \OperatorTok{\}}
+\OperatorTok{\};}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux5934ux6587ux4ef6}{%
+\subsubsection{头文件}\label{ux5934ux6587ux4ef6}}
+
+头文件参照以下格式
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\PreprocessorTok{\#pragma once}
+\CommentTok{/*}
+\CommentTok{Creation Date: 2021/12/24}
+\CommentTok{Latest Update: 2022/10/08}
+\CommentTok{Developer(s): 21 THY}
+\CommentTok{(C)Copyright: NJUST.Alliance {-} All rights reserved}
+\CommentTok{Class functions:}
+\CommentTok{{-} function1}
+\CommentTok{{-} function2}
+\CommentTok{{-} ...}
+\CommentTok{*/}
+\PreprocessorTok{\#include }\ImportTok{\textless{}...\textgreater{}}
+\PreprocessorTok{\#define ...}
+
+\KeywordTok{class} \OperatorTok{...} \OperatorTok{\{}
+\KeywordTok{private}\OperatorTok{:}
+    \OperatorTok{...}
+\KeywordTok{public}\OperatorTok{:}
+    \OperatorTok{...}
+\OperatorTok{\};}
+\end{Highlighting}
+\end{Shaded}
+
+若有\texttt{\#pragma\ once}，可省略\texttt{ifdef}对头文件的保护。
+
+\hypertarget{ux6e90ux6587ux4ef6}{%
+\subsubsection{源文件}\label{ux6e90ux6587ux4ef6}}
+
+\hypertarget{ux4e3bux6e90ux6587ux4ef6}{%
+\paragraph{主源文件}\label{ux4e3bux6e90ux6587ux4ef6}}
+
+主源文件参考格式如下
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\PreprocessorTok{\#include }\ImportTok{\textless{}...\textgreater{}}
+\PreprocessorTok{\#include }\ImportTok{"..."}
+\PreprocessorTok{\#define ...}
+\KeywordTok{using} \KeywordTok{namespace} \OperatorTok{...;}
+\KeywordTok{typedef} \OperatorTok{...;}
+
+\DataTypeTok{class\_type}\NormalTok{ varA}\OperatorTok{,}\NormalTok{ varB}\OperatorTok{;}
+
+\DataTypeTok{int}\NormalTok{ main}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ argc}\OperatorTok{,} \DataTypeTok{char}\OperatorTok{*}\NormalTok{ argv}\OperatorTok{[])} \OperatorTok{\{}
+\PreprocessorTok{\#ifdef DEBUG}
+    \OperatorTok{...}
+\PreprocessorTok{\#else }\CommentTok{// no DEBUG}
+    \OperatorTok{...}
+\PreprocessorTok{\#endif}
+    \ControlFlowTok{return} \DecValTok{0}\OperatorTok{;}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+不允许在主源文件\texttt{main}函数前有任何函数的实现，\texttt{return\ 0;}是必须的。
+
+\hypertarget{ux5176ux4ed6}{%
+\paragraph{其他}\label{ux5176ux4ed6}}
+
+其他源文件对格式不做要求，但函数的实现顺序须与声明顺序相同。
+
+\hypertarget{ux89c6ux89c9ux5de5ux7a0b}{%
+\subsubsection{视觉工程}\label{ux89c6ux89c9ux5de5ux7a0b}}
+
+\hypertarget{mat}{%
+\paragraph{Mat}\label{mat}}
+
+\texttt{Mat}类是自带引用计数的类，如果直接让\texttt{Mat}类型的\texttt{a\ =\ b}，修改\texttt{a}时\texttt{b}中的图形也将被改变，这时应使用\texttt{a\ =\ b.clone();}，也可利用这个特性实现非引用的函数传参修改，但要求还是要使用引用传参。
+
+\hypertarget{named-window}{%
+\paragraph{Named window}\label{named-window}}
+
+\texttt{Namedwindow}可以有多种类型，具体取决于第二个参数，请自行查阅。
+
+\hypertarget{trackbar}{%
+\paragraph{Trackbar}\label{trackbar}}
+
+建议在一个项目中将所有的\texttt{trackbar}创建放在一个函数内
+
+\textbf{示例：}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{void}\NormalTok{ ParametersInit}\OperatorTok{(...)} \OperatorTok{\{}
+\PreprocessorTok{\#if PARA\_DEBUG == 1}
+\NormalTok{	namedWindow}\OperatorTok{(}\NormalTok{TRACKBAR\_NAME}\OperatorTok{,}\NormalTok{ WINDOW\_NORMAL}\OperatorTok{);}
+	\CommentTok{// LightBar Parameters}
+\NormalTok{	AddTrackbar}\OperatorTok{(}\StringTok{"..."}\OperatorTok{,} \OperatorTok{\&...,} \OperatorTok{...);}
+\NormalTok{	AddTrackbar}\OperatorTok{(}\StringTok{"..."}\OperatorTok{,} \OperatorTok{\&...,} \OperatorTok{...);}
+    \OperatorTok{...}
+	\CommentTok{// Armor Parameters}
+\NormalTok{	AddTrackbar}\OperatorTok{(}\StringTok{"..."}\OperatorTok{,} \OperatorTok{\&...,} \OperatorTok{...);}
+\NormalTok{	AddTrackbar}\OperatorTok{(}\StringTok{"..."}\OperatorTok{,} \OperatorTok{\&...,} \OperatorTok{...);}
+    \OperatorTok{...}
+	\CommentTok{// ... Parameters}
+\NormalTok{	AddTrackbar}\OperatorTok{(}\StringTok{"..."}\OperatorTok{,} \OperatorTok{\&...,} \OperatorTok{...);}
+\NormalTok{	AddTrackbar}\OperatorTok{(}\StringTok{"..."}\OperatorTok{,} \OperatorTok{\&...,} \OperatorTok{...);}
+    \OperatorTok{...}
+\PreprocessorTok{\#endif}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+注意不要重复创建同一个拖动条。
+
+\hypertarget{ux5de5ux5177ux6027ux5de5ux7a0b}{%
+\paragraph{工具性工程}\label{ux5de5ux5177ux6027ux5de5ux7a0b}}
+
+创造合适的工具性代码可以让开发变得便利，如HSV颜色范围检测工程等。合理创造并使用自己的工具而非机械地调试。
+
+\hypertarget{ux4ee3ux7801ux5171ux4eab}{%
+\paragraph{代码共享}\label{ux4ee3ux7801ux5171ux4eab}}
+
+一些通用库（如\texttt{PNP}、\texttt{ANN}）在开发、封装好后与组内的队员共享。由此每个人负责不同类的开发减少每个人的工作量、加快开发速度，约定好统一的接口以使用同伴开发的类。
+
+\hypertarget{debug}{%
+\subsubsection{Debug}\label{debug}}
+
+\hypertarget{ux9759ux6001ux67e5ux9519}{%
+\paragraph{静态查错}\label{ux9759ux6001ux67e5ux9519}}
+
+静态查错指不运行程序，通过观察代码、逻辑推理、脑内演算来预测程序的行为是否符合本意。学会并熟练静态查错非常重要。一次性写好没有BUG的工程几乎是不可能的，在开始跑程序之前对整个工程进行一遍静态查错能节省大量的调试时间。
+
+\hypertarget{ux52a8ux6001ux67e5ux9519}{%
+\paragraph{动态查错}\label{ux52a8ux6001ux67e5ux9519}}
+
+动态差错指在程序运行时通过中间变量输出、CPU监视器、内存监视器等手段查找工程中运行与预期不符的代码段。利用好现有的查错工具能很好地帮助您更快了解代码的问题所在。
+
+\end{document}
