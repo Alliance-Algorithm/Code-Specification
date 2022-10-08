@@ -1,4 +1,6 @@
-<center><font size="6"><b>Alliance2023 Algorithm Team 代码规范</b></font></center>
+<center><font size="6"><b>Alliance2023 Algorithm Team</b></font></center>
+
+<center><font size="6"><b>代码规范</b></font></center>
 
 <p align="right">Developed by NJUST.Alliance.谭恒宇 2022-10-8</p>
 
@@ -267,7 +269,7 @@ private:
 
 #### 函数
 
-在主源文件不可避免的有较多子函数时，建议将所有函数的声明放置在`main`函数之前，声明放在`main`函数之后，使用<kbd>CTRL</kbd>+<kbd>鼠标左键</kbd>的方式跳转至函数的实现，有利于代码逻辑的呈现。
+在主源文件不可避免的有较多子函数时，建议将所有函数的声明放置在`main`函数之前，实现放在`main`函数之后，使用<kbd>CTRL</kbd>+<kbd>鼠标左键</kbd>的方式跳转至函数的实现，有利于代码逻辑的呈现。
 
 类封装时头文件里不实现任何超过一行的函数，被实现在类声明中的函数被编译器默认置为内联`inline`函数，滥用`inline`函数会导致潜在的代码膨胀。头文件对应的源文件里的函数实现应遵循类定义时函数声明的顺序依次实现。
 

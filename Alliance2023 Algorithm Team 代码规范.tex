@@ -90,14 +90,16 @@
 
 \begin{document}
 
-Alliance2023 Algorithm Team 代码规范
+Alliance2023 Algorithm Team
+
+代码规范
 
 Developed by NJUST.Alliance.谭恒宇 2022-10-8
 
 \hypertarget{ux524dux8a00}{%
 \subsection{前言}\label{ux524dux8a00}}
 
-遵守此规范有助于，提高、增强代码和。
+遵守此规范有助于\hl{减少出错率}，提高\hl{调试效率}、增强代码\hl{可读性}和\hl{可复用性}。
 
 \hypertarget{ux89c4ux8303ux4e0eux7ea6ux675f}{%
 \subsection{规范与约束}\label{ux89c4ux8303ux4e0eux7ea6ux675f}}
@@ -414,7 +416,7 @@ Developed by NJUST.Alliance.谭恒宇 2022-10-8
 \hypertarget{ux51fdux6570}{%
 \paragraph{函数}\label{ux51fdux6570}}
 
-在主源文件不可避免的有较多子函数时，建议将所有函数的声明放置在\texttt{main}函数之前，声明放在\texttt{main}函数之后，使用CTRL+鼠标左键的方式跳转至函数的实现，有利于代码逻辑的呈现。
+在主源文件不可避免的有较多子函数时，建议将所有函数的声明放置在\texttt{main}函数之前，实现放在\texttt{main}函数之后，使用CTRL+鼠标左键的方式跳转至函数的实现，有利于代码逻辑的呈现。
 
 类封装时头文件里不实现任何超过一行的函数，被实现在类声明中的函数被编译器默认置为内联\texttt{inline}函数，滥用\texttt{inline}函数会导致潜在的代码膨胀。头文件对应的源文件里的函数实现应遵循类定义时函数声明的顺序依次实现。
 
@@ -593,7 +595,7 @@ Developed by NJUST.Alliance.谭恒宇 2022-10-8
 \hypertarget{ux5b8f}{%
 \paragraph{宏}\label{ux5b8f}}
 
-\textbf{重申：}
+\textbf{重申：}\hl{严禁使用宏定义来完成本应函数完成的功能}
 
 \textbf{常用的宏示例：}
 
@@ -692,6 +694,8 @@ namespace}\label{ux547dux540dux7a7aux95f4-namespace}}
 函数实现需包括形参名，默认参数只能存在声明或没有声明直接实现的函数中。
 
 若函数被封装在\texttt{.h}和\texttt{.cpp}文件内，则声明在头文件，实现在源文件中。头文件不允许实现任何超过一行语句的函数。可以合理使用函数修饰符优化编译。
+
+\hl{作为唯一的例外，模板类的模板方法的实现\textbf{必须}在头文件中，普通方法的实现\textbf{必须}在源文件中。}
 
 \hypertarget{ux51fdux6570ux5f62ux53c2ux548cux8fd4ux56deux503c}{%
 \paragraph{函数形参和返回值}\label{ux51fdux6570ux5f62ux53c2ux548cux8fd4ux56deux503c}}
